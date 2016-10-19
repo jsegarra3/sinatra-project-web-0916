@@ -17,6 +17,20 @@ Watch the below clip to see basic functionality of app.
 - What models and controllers will you need?
 - Break up the controllers based on their responsibility
 
+Users < UserRestaurants > Restaurants
+
+User
+has_many UserRestaurants
+has_many Restaurants through UserRestaurants
+
+Restaurant
+has_many UserRestaurants
+has_many Restaurants through UserRestaurants
+
+UserRestaurants
+belongs_to user
+belongs_to restaurant
+
 # Requests
 - What type of requests will you use to create a new user and restaurant?
 - What about seeing all users/restaurants and seeing individual users/restaurants
@@ -27,3 +41,10 @@ When you've successfully built out an app that allows you to add a restaurant ma
 <img src="/gifs/BasicSinatraAppwithAdapterPattern.gif">
 
 Using the adapter pattern, allow your users to hit the API and get restaurant objects returned. Once your adapter pattern is working effectively, feel free to tool around with the API.
+
+
+
+<!-- <form action="/restaurant/<%= @user.id %>/edit" method="get">
+  <input type="edit" name="edit" value="Edit This User">
+</form>
+<br /> -->
